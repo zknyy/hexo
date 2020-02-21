@@ -1,11 +1,25 @@
 From node:lts-alpine
 
+##WORKDIR  /
+
 RUN apk update \
  && apk add npm \
  && npm install hexo-cli -g \
- && hexo init blog \
- && cd blog \
- && hexo server
+ && hexo init blog
+
+WORKDIR  /blog
+
+#&& hexo server
 
 EXPOSE 4000
 CMD [ "hexo" , "server" ]
+
+#
+#
+# git clone https://github.com/hexojs/hexo-starter.git
+# docker rmi -f zknyy/hexo
+# docker build -t zknyy/hexo .
+# docker run --name hexo -p 80:4000 zknyy/hexo server
+# docker rm hexo
+#
+# docker run -d --rm --name hexo -p 80:4000 zknyy/hexo
