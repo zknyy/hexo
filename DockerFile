@@ -1,0 +1,11 @@
+From node:lts-alpine
+
+RUN apk update \
+ && apk add npm \
+ && npm install hexo-cli -g \
+ && hexo init blog \
+## && cd blog \
+ && hexo server
+
+EXPOSE 4000
+CMD [ "hexo" , "server" ]
