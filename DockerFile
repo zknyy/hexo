@@ -4,7 +4,7 @@ RUN apk update \
  && apk add npm \
  && npm install hexo-cli -g \
  && hexo init blog \
-## && cd blog \
+ && cd blog \
  && hexo server
 
 EXPOSE 4000
