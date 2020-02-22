@@ -1,9 +1,9 @@
-From node:lts-alpine
+From alpine:latest
 
 ##WORKDIR  /
 
 RUN apk update \
- && apk add npm \
+ && apk add npm git \
  && npm install hexo-cli -g \
  && hexo init blog
 
